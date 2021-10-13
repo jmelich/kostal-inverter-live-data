@@ -7,6 +7,16 @@ import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {CdkScrollable, CdkScrollableModule} from "@angular/cdk/scrolling";
 import {MatButton, MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {
+  MatCard,
+  MatCardContent,
+  MatCardHeader,
+  MatCardModule,
+  MatCardSubtitle,
+  MatCardTitle
+} from "@angular/material/card";
+import {LineChartComponent, NgxChartsModule} from "@swimlane/ngx-charts";
+import {NgxXmlToJsonModule} from "ngx-xml-to-json";
 
 
 
@@ -22,7 +32,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatToolbarModule,
     CdkScrollableModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    NgxChartsModule,
   ],
   exports: [
     MatSidenavContainer,
@@ -35,6 +47,13 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatIcon,
     CdkScrollable,
     MatButton,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatCardContent,
+    LineChartComponent,
+    NgxXmlToJsonModule
   ]
 })
 export class SharedModule { }

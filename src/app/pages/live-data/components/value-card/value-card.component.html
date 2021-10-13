@@ -1,0 +1,21 @@
+<mat-card class="value-card">
+  <mat-card-header>
+    <mat-card-title>Title</mat-card-title>
+    <mat-card-subtitle>Subtitle</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="value-card-content">
+    <div class="value-card-chart-container">
+      <ngx-charts-line-chart *ngIf="values"
+                             [showXAxisLabel]="false"
+                             [showYAxisLabel]="false"
+                             [xAxis]="false"
+                             [yAxis]="false"
+                             [xAxisLabel]="''"
+                             [yAxisLabel]="'nothing'"
+                             [timeline]="true"
+                             [results]="results"
+      >
+      </ngx-charts-line-chart>
+    </div>
+  </mat-card-content>
+</mat-card>
