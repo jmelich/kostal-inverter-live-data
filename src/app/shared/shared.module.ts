@@ -16,7 +16,7 @@ import {
   MatCardTitle
 } from "@angular/material/card";
 import {LineChartComponent, NgxChartsModule} from "@swimlane/ngx-charts";
-import {NgxXmlToJsonModule} from "ngx-xml-to-json";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -35,6 +35,7 @@ import {NgxXmlToJsonModule} from "ngx-xml-to-json";
     BrowserAnimationsModule,
     MatCardModule,
     NgxChartsModule,
+    HttpClientModule
   ],
   exports: [
     MatSidenavContainer,
@@ -52,8 +53,7 @@ import {NgxXmlToJsonModule} from "ngx-xml-to-json";
     MatCardTitle,
     MatCardSubtitle,
     MatCardContent,
-    LineChartComponent,
-    NgxXmlToJsonModule
+    LineChartComponent
   ]
 })
 export class SharedModule { }

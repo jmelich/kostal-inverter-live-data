@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {NgxXmlToJsonService} from "ngx-xml-to-json";
 import {map} from "rxjs/operators";
+import {InverterData} from "../classes/inverter-data";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class InverterService {
 
-  url = '192.168.100.110';
+  url = 'http://192.168.100.205';
 
   constructor(
-    private http: HttpClient,
-    private ngxXmlToJsonService: NgxXmlToJsonService
+    private http: HttpClient
   ) { }
 
-  getInverterData() {
-    return this.http.get(`${this.url}/measurements.xml`).pipe(
+  getInverterData():Observable<InverterData> {
+    return this.http.get<InverterData>(`${this.url}/measurements.xml`).pipe(
       map((inverterData: any) => {
-        const options = { // set up the default options
-          textKey: 'text', // tag name for text nodes
-          attrKey: 'attr', // tag for attr groups
-          cdataKey: 'cdata', // tag for cdata nodes (ignored if mergeCDATA is true)
-        };
-        return this.ngxXmlToJsonService.xmlToJson(inverterData, options)
+        return {
+          deviceName: '',
+          serial: '',
+          OEMSerial: '',
+          gridPower: 0
+        }
       })
     )
   }
