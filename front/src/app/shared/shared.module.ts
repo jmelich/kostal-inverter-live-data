@@ -16,7 +16,7 @@ import {
   MatCardTitle
 } from "@angular/material/card";
 import {LineChartComponent, NgxChartsModule} from "@swimlane/ngx-charts";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
 
 
 
@@ -35,7 +35,8 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserAnimationsModule,
     MatCardModule,
     NgxChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   exports: [
     MatSidenavContainer,

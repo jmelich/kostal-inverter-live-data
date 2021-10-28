@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {InverterData} from "../../classes/inverter-data";
-import {InverterService} from "../../services/inverter.service";
+import {ApiService} from "../../services/inverter.service";
 
 @Component({
   selector: 'app-live-data',
@@ -12,7 +12,7 @@ export class LiveDataComponent implements OnInit {
   inverterData?: InverterData[];
 
   constructor(
-    private inverterService: InverterService
+    private inverterService: ApiService
   ) { }
 
   ngOnInit(): void {

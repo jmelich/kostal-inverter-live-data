@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { InverterService } from './inverter.service';
+import { ApiService } from './inverter.service';
 
 describe('InverterService', () => {
-  let service: InverterService;
+  let service: ApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(InverterService);
+    service = TestBed.inject(ApiService);
   });
 
   it('should be created', () => {
