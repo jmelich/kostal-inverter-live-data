@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 })
 export class ApiService {
 
-  apiUrl = 'http://127.0.0.1'
+  apiUrl = 'http://127.0.0.1:3000'
   inverterUrl = 'http://192.168.100.205';
 
   constructor(
