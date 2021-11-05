@@ -17,6 +17,10 @@ import {
 } from "@angular/material/card";
 import {LineChartComponent, NgxChartsModule} from "@swimlane/ngx-charts";
 import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 
@@ -36,7 +40,11 @@ import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
     MatCardModule,
     NgxChartsModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule
   ],
   exports: [
     MatSidenavContainer,
@@ -54,7 +62,11 @@ import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
     MatCardTitle,
     MatCardSubtitle,
     MatCardContent,
-    LineChartComponent
+    LineChartComponent,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule
   ]
 })
 export class SharedModule { }
