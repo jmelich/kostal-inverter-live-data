@@ -1,15 +1,33 @@
-const http = require('http');
+const express = require('express');
+const request = require('request');
+const xml2js = require('xml2js');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const app = express();
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.end('Hola Mundo');
+
+
+app.get('/', function(req, res){
+  const options = {
+    normalizeTags: true,
+    explicitRoot: false,
+    headless: true
+  };
+  request.get(`http://${req.query.inverterAddress}/measurements.xml`, options, function(err, res1, body) {
+    xml2js.parseString(body, options, (err, result) => {
+      if(err) {
+        throw err;
+      }
+
+      result.device[0].info = result.device[0]['$'];
+      delete result.device[0]['$'];
+
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.end(JSON.stringify(result.device[0], null, 4))
+
+    });
+  });
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(3000);

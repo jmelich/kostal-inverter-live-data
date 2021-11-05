@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node app.js"
   },
   "author": "Jordi Mèlich Pelegrí",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "xml2js": "^0.4.23"
+  }
 }
