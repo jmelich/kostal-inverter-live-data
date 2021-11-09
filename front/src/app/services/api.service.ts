@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {InverterData} from "../classes/inverter-data";
+import {InverterInfo} from "../classes/inverter-info";
 import {Observable} from "rxjs";
 import {environment} from '../../environments/environment';
 import {ConfigurationService} from "./configuration.service";
-import {map} from "rxjs/operators";
+import {Measurement} from "../classes/measurement";
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +16,20 @@ export class ApiService {
     private configurationService: ConfigurationService
   ) { }
 
-  getInverterData():Observable<InverterData> {
-    return this.http.get<InverterData>(environment.apiUrl, {
+  getInfo():Observable<InverterInfo> {
+    return this.http.get<InverterInfo>(`${environment.apiUrl}/information`, {
       params: {
         inverterAddress: this.configurationService.getConfiguration('inverterAddress') || ''
       }
-    }).pipe(
-      map( x => x) //TODO swap request to InverterData
-    )
+    })
   }
+
+  getMeasurement():Observable<Measurement> {
+    return this.http.get<Measurement>(`${environment.apiUrl}/measurement`, {
+      params: {
+        inverterAddress: this.configurationService.getConfiguration('inverterAddress') || ''
+      }
+    })
+  }
+
 }

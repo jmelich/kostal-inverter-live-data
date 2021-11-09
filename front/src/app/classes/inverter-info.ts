@@ -1,6 +1,5 @@
-export interface InverterData {
+export interface InverterInfo {
   deviceName: string;
   serial: string;
   OEMSerial: string;
-  gridPower: number;
 }

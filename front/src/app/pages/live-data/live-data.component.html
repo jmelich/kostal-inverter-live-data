@@ -1,6 +1,8 @@
-<div class="live-data-container">
-<!--  <app-value-card *ngFor="let keyvalue of inverterData | keyvalue"-->
-<!--                  [title]="$any(keyvalue.value).title"-->
-<!--                  [values]="$any(keyvalue.value).values">-->
-<!--  </app-value-card>-->
+<div *ngIf="latestMeasurement" class="live-data-container">
+  <mat-card [ngClass]="(latestMeasurement.gridPower.value * -1) >0 ? 'red' : 'green'">
+    <mat-card-title>Power balance</mat-card-title>
+    <mat-card-content>
+      <h1>{{latestMeasurement.gridPower.value * -1 | number: '1.0-0'}} {{latestMeasurement.gridPower.unit}}</h1>
+    </mat-card-content>
+  </mat-card>
 </div>

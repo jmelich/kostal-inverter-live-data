@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {InverterData} from "../../classes/inverter-data";
 import {ApiService} from "../../services/api.service";
+import {Measurement} from "../../classes/measurement";
+import {interval, Subscription} from "rxjs";
+import {startWith, switchMap} from "rxjs/operators";
+import {ConfigurationService} from "../../services/configuration.service";
 
 @Component({
   selector: 'app-live-data',
@@ -9,21 +12,31 @@ import {ApiService} from "../../services/api.service";
 })
 export class LiveDataComponent implements OnInit {
 
-  inverterData?: InverterData[];
+  measurements?: Measurement[] = [];
+
+  latestMeasurement?:  Measurement;
+
+  polling?: Subscription;
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private configurationService: ConfigurationService
   ) { }
 
   ngOnInit(): void {
-    this.apiService.getInverterData().subscribe((next: InverterData) => {
-      console.log(next);
-    })
+    this.polling = interval((this.configurationService.getConfiguration('pollingRate') as unknown as number) * 1000 || 5000)
+      .pipe(
+        startWith(0),
+        switchMap(() => this.apiService.getMeasurement())
+      ).subscribe( measurement => {
+        this.latestMeasurement = measurement;
+        this.addData(measurement)
+    });
   }
 
-  addData(newData: InverterData) {
-    if(this.inverterData) {
-      this.inverterData = [...this.inverterData, newData];
+  addData(newData: Measurement) {
+    if(this.measurements) {
+      this.measurements = [...this.measurements, newData];
     }
   }
 }
