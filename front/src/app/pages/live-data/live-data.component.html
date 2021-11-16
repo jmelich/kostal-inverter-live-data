@@ -2,7 +2,7 @@
   <mat-card [ngClass]="(latestMeasurement.gridPower.value * -1) >0 ? 'red' : 'green'">
     <mat-card-title>Power balance</mat-card-title>
     <mat-card-content>
-      <h1>{{latestMeasurement.gridPower.value * -1 | number: '1.0-0'}} {{latestMeasurement.gridPower.unit}}</h1>
+      <h1>{{latestMeasurement.gridPower.value * -1 | number: '1.0-0': 'es'}} {{latestMeasurement.gridPower.unit}}</h1>
     </mat-card-content>
   </mat-card>
 </div>
