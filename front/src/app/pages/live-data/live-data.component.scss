@@ -1,0 +1,14 @@
+.live-data-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+  mat-card {
+    &.green {
+      background-color: rgba(105, 240, 163, .5)
+    }
+    &.red {
+      background-color: rgba(230,74,25, .5)
+    }
+  }
+}

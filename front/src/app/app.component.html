@@ -1,0 +1,21 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/livedata" routerLinkActive="sidenav-active"><mat-icon>multiline_chart</mat-icon>Live data</a>
+      <a mat-list-item routerLink="/configuration" routerLinkActive="sidenav-active"><mat-icon>settings</mat-icon>Configuration</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content cdkScrollable class="mat-drawer-content">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button mat-button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button> Kostal Inverter Live Data
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

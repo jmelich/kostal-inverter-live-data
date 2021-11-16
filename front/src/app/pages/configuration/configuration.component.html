@@ -1,0 +1,18 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <form *ngIf="configurationForm" [formGroup]="configurationForm" (submit)="onSubmit()">
+    <p>
+      <mat-form-field>
+        <mat-label>Inverter IP</mat-label>
+        <input type="text" matInput formControlName="inverterAddress">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Polling rate (s)</mat-label>
+        <input type="number" matInput formControlName="pollingRate">
+      </mat-form-field>
+    </p>
+    <button mat-flat-button color="primary" class="button-apply"><mat-icon>save</mat-icon>Apply changes</button>
+  </form>
+</div>
+
