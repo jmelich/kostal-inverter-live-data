@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: `${process.env.API_URL}`
+  apiUrl: 'https://example.net:3000'
 };
