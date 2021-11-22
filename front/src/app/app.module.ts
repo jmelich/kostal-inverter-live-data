@@ -11,6 +11,7 @@ import localeEs from '@angular/common/locales/es';
 import {registerLocaleData} from "@angular/common";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 registerLocaleData(localeEs);
 
 
@@ -19,6 +20,7 @@ registerLocaleData(localeEs);
     AppComponent,
     LiveDataComponent,
     ConfigurationComponent,
+    MainLayoutComponent,
   ],
   imports: [
     BrowserModule,
